@@ -5,6 +5,13 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup {
-  { import = 'claykom.plugins' },
-}
+require('lazy').setup({
+  { import = "claykom.plugins" },  { import = "claykom.plugins.lsp" },
+  checker = {
+	enabled = true,
+	notify = false,
+  },
+  change_detection = {
+	notify = false,
+  }
+})
