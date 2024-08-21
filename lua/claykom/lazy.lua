@@ -6,5 +6,6 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
-  { import= 'claykom.plugins' },
-  }
+  { import = 'claykom.plugins' },
+  { import = 'claykom.plugins.lsp' },
+}

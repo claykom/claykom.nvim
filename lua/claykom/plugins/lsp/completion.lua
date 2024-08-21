@@ -1,4 +1,5 @@
-return { -- Autocompletion
+return {
+  -- Autocompletion
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
   dependencies = {
@@ -34,15 +35,16 @@ return { -- Autocompletion
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
-    'petertriho/cmp-git'
-    'DasGandlaf/nvim-autohotkey',
+    'petertriho/cmp-git',
   },
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
-    luasnip.config.setup {}
+    local autohotkey = require 'claykom.plugins.lsp.autohotkey'
+    autohotkey.config()
 
+    luasnip.config.setup {}
     cmp.setup {
       snippet = {
         expand = function(args)
@@ -55,7 +57,6 @@ return { -- Autocompletion
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
-
 
       -- For an understanding of why these mappings were
       -- chosen, you will need to read `:help ins-completion`
@@ -113,13 +114,8 @@ return { -- Autocompletion
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
+        { name = 'autohotkey' },
       },
-      cmp.setup.filetype({ 'autohotkey' },
-        { sources = {
-          { name = 'autohotkey' }
-        },
-      })
     }
   end,
 }
-

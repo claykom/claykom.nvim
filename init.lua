@@ -1,3 +1,2 @@
-require("claykom.core")
-require("claykom.lazy")
-
+require 'claykom.core'
+require 'claykom.lazy'
