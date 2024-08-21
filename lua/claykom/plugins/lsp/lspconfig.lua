@@ -5,6 +5,7 @@ return {
       { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
+      'nvimtools/none-ls.nvim',
       { 'j-hui/fidget.nvim', opts = {} },
       {
         'folke/lazydev.nvim',
@@ -138,6 +139,11 @@ return {
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
+        },
+      }
+      require("null-ls").setup{
+        sources = {
+        -- Anything not supported by mason.
         },
       }
     end,

@@ -2,6 +2,7 @@ return { -- Autocompletion
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
   dependencies = {
+
     -- Snippet Engine & its associated nvim-cmp source
     {
       'L3MON4D3/LuaSnip',
@@ -33,6 +34,8 @@ return { -- Autocompletion
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    'petertriho/cmp-git'
+    'DasGandlaf/nvim-autohotkey',
   },
   config = function()
     -- See `:help cmp`
@@ -47,6 +50,12 @@ return { -- Autocompletion
         end,
       },
       completion = { completeopt = 'menu,menuone,noinsert' },
+
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+
 
       -- For an understanding of why these mappings were
       -- chosen, you will need to read `:help ins-completion`
@@ -104,8 +113,13 @@ return { -- Autocompletion
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
-        { name = 'autohotkey' },
       },
+      cmp.setup.filetype({ 'autohotkey' },
+        { sources = {
+          { name = 'autohotkey' }
+        },
+      })
     }
   end,
 }
+
