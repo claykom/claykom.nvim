@@ -1,0 +1,17 @@
+@document.meta
+title: literature-note_{TODAY}
+description:
+authors: {AUTHOR}
+categories: literature
+created: {TODAY_OF_FILETREE}
+updated: {TODAY}
+version: 1.0.0
+@end
+
+* {TITLE}
+  {URL_TAG}
+  |comment
+  {INSERT}
+  |end
+
+  {CURSOR}
