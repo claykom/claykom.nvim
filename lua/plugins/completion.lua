@@ -41,8 +41,6 @@ return {
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
-    local autohotkey = require 'claykom.plugins.lsp.autohotkey'
-    autohotkey.config()
 
     luasnip.config.setup {}
     cmp.setup {
@@ -114,7 +112,6 @@ return {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
-        { name = 'autohotkey' },
       },
     }
   end,
